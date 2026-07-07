@@ -1,0 +1,39 @@
+{
+  "name": "pareto-resource-execute-unrestricted",
+  "version": "0.1.1",
+  "author": "Corno",
+  "license": "Apache-2.0",
+  "description": "a library that implements the execute-unrestricted-api and thus provides program execution functionality for pareto packages. This resource is not sandboxed and thus gives a package the ability to execute any programs without any restrictions. The sandboxed version gives the application control over which programs the package can execute",
+  "keywords": [],
+  "homepage": "https://github.com/corno/pareto-resource-execute-unrestricted#readme",
+  "bugs": {
+    "url": "https://github.com/corno/pareto-resource-execute-unrestricted/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corno/pareto-resource-execute-unrestricted.git"
+  },
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "documentation"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "pareto-core": "^0.1.0",
+    "pareto-resources": "^0.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0"
+  }
+}
