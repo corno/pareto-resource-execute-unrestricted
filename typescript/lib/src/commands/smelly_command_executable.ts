@@ -2,7 +2,7 @@
 import * as p_ from 'pareto-core/implementation/resource'
 
 //interface
-import * as resources from "pareto-resources/interface/resources"
+import * as interface_ from "pareto-resources/interface/command_actions"
 
 //dependencies
 import { spawn } from "node:child_process"
@@ -17,7 +17,7 @@ import * as t_path_to_text from "pareto-resources/implementation/manual/transfor
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.execute_unrestricted.commands.smelly_command_executable = p_.command(($p, on_success, on_error) => {
+export const $$: interface_.execute_unrestricted.smelly_command_executable = p_.command(($p, on_success, on_error) => {
 
     const wd_raw = $p['working directory'].__get_raw()
 
