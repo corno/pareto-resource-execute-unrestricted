@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/resource'
 import * as p_c from 'pareto-core/implementation/command'
 
 //interface
-import * as interface_ from "pareto-resources/interface/command_actions"
+import * as interface_ from "pareto-resources/interface/commands"
 
 //dependencies
 import { spawn } from "node:child_process"
