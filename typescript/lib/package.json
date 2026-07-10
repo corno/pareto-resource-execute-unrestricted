@@ -1,6 +1,6 @@
 {
   "name": "pareto-resource-execute-unrestricted",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "a library that implements the execute-unrestricted-api and thus provides program execution functionality for pareto packages. This resource is not sandboxed and thus gives a package the ability to execute any programs without any restrictions. The sandboxed version gives the application control over which programs the package can execute",

@@ -7,7 +7,7 @@ import * as interface_ from "pareto-resources/interface/commands"
 //dependencies
 import { spawn } from "node:child_process"
 import * as t_text_to_terminal_output from "../__internal/terminal_output.js"
-import * as t_path_to_text from "pareto-resources/implementation/manual/transformers/unrestricted_path/text"
+import * as t_path_to_text from "pareto-resources/implementation/transformers/unrestricted_path/text"
 
 // import { Signature } from "pareto-resources/interface/algorithms/commands/execute_smelly_procedure_executable"
 
