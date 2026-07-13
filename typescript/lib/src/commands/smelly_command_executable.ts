@@ -1,5 +1,6 @@
 
 import * as p_ from 'pareto-core/implementation/resource'
+import * as p_s from 'pareto-core/implementation/serializer'
 
 //interface
 import * as interface_ from "pareto-resources/interface/commands"
@@ -7,7 +8,7 @@ import * as interface_ from "pareto-resources/interface/commands"
 //dependencies
 import { spawn } from "node:child_process"
 import * as t_text_to_terminal_output from "../__internal/terminal_output.js"
-import * as t_path_to_text from "pareto-resources/implementation/transformers/unrestricted_path/text"
+import * as ser_path from "pareto-resources/implementation/serializers/unrestricted_path"
 
 // import { Signature } from "pareto-resources/interface/algorithms/commands/execute_smelly_procedure_executable"
 
@@ -31,7 +32,11 @@ export const $$: interface_.execute_unrestricted.smelly_command_executable = p_.
         {
             'cwd': wd_raw === null
                 ? undefined
-                : t_path_to_text.Context_Path(wd_raw[0]),
+                                : p_s.text_from_phrase(
+                                    ser_path.Context_Path(wd_raw[0]),
+                                    "",
+                                    "\n"
+                                ),
             shell: false, // direct execution, no shell
             stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
         }

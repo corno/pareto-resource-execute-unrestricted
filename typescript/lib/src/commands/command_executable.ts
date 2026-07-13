@@ -1,5 +1,6 @@
 import * as p_ from 'pareto-core/implementation/resource'
 import * as p_c from 'pareto-core/implementation/command'
+import * as p_s from 'pareto-core/implementation/serializer'
 
 //interface
 import * as interface_ from "pareto-resources/interface/commands"
@@ -7,7 +8,7 @@ import * as interface_ from "pareto-resources/interface/commands"
 //dependencies
 import { spawn } from "node:child_process"
 import * as t_text_to_terminal_output from "../__internal/terminal_output.js"
-import * as t_path_to_text from "pareto-resources/implementation/transformers/unrestricted_path/text"
+import * as ser_path from "pareto-resources/implementation/serializers/unrestricted_path"
 
 /**
  * 
@@ -24,7 +25,11 @@ export const $$: interface_.execute_unrestricted.command_executable = p_.command
         {
             'cwd': wd_raw === null
                 ? undefined
-                : t_path_to_text.Context_Path(wd_raw[0]),
+                : p_s.text_from_phrase(
+                    ser_path.Context_Path(wd_raw[0]),
+                    "",
+                    "\n"
+                ),
             'shell': false,
         }
     )
@@ -44,9 +49,9 @@ export const $$: interface_.execute_unrestricted.command_executable = p_.command
             on_success()
         } else {
             on_error(['non zero exit code', {
-                'exit code': exitCode === null 
-                ? p_c.literal.not_set()
-                 : p_c.literal.set(exitCode),
+                'exit code': exitCode === null
+                    ? p_c.literal.not_set()
+                    : p_c.literal.set(exitCode),
                 'stderr': t_text_to_terminal_output.Message(stderrData),
             }])
         }
