@@ -24,11 +24,7 @@ export const $$: interface_.execute_unrestricted.query_executable = p_.query(($p
     const child = spawn($p.program, args, {
         'cwd': wd_raw === null
             ? undefined
-                            : p_s.text_from_phrase(
-                                ser_path.Context_Path(wd_raw[0]),
-                                "",
-                                "\n"
-                            ),
+            : ser_path.Context_Path(wd_raw[0]),
         shell: false, // ✅ no implicit parsing
     })
 
@@ -62,9 +58,9 @@ export const $$: interface_.execute_unrestricted.query_executable = p_.query(($p
         } else {
             on_error(p_change_context(null, () => {
                 return ['non zero exit code', {
-                    'exit code': exitCode === null 
-                    ? p_.literal.not_set() 
-                    : p_.literal.set(exitCode),
+                    'exit code': exitCode === null
+                        ? p_.literal.not_set()
+                        : p_.literal.set(exitCode),
                     'stderr': t_text_to_terminal_output.Message(stderrData),
                 }]
             }))

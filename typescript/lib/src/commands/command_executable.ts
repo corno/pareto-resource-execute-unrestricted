@@ -25,11 +25,7 @@ export const $$: interface_.execute_unrestricted.command_executable = p_.command
         {
             'cwd': wd_raw === null
                 ? undefined
-                : p_s.text_from_phrase(
-                    ser_path.Context_Path(wd_raw[0]),
-                    "",
-                    "\n"
-                ),
+                : ser_path.Context_Path(wd_raw[0]),
             'shell': false,
         }
     )
