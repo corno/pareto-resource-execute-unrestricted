@@ -3,12 +3,12 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 import * as p_s from 'pareto-core/implementation/serializer'
 
 //interface
-import * as interface_ from "pareto-resources/interface/queries"
+import * as interface_ from "pareto-resources/queries/interfaces"
 
 //dependencies
 import { spawn } from "node:child_process"
-import * as t_text_to_terminal_output from "../__internal/terminal_output.js"
-import * as ser_path from "pareto-resources/implementation/serializers/unrestricted_path"
+import * as t_text_to_terminal_output from "../../temp/terminal_output.js"
+import * as ser_path from "pareto-resources/schemas/fs_unrestricted_path/serializers"
 
 
 /**
